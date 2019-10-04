@@ -1,2 +1,6 @@
 *.swo
 *.swp
+gen-output
+gen-random-input
+*.txt
+*.zip
