@@ -25,6 +25,6 @@ int main(int argc,char *argv[]) {
     for(; i < size; i++) {
         s += MIN_STEP + rand() % (MAX_STEP-MIN_STEP);
         int e = s + MIN_INTERVAL_SIZE + rand() % (MAX_INTERVAL_SIZE-MIN_INTERVAL_SIZE);
-        printf("%d %d\n",s,e);
+        printf("%d\t%d\n",s,e);
     }
 }

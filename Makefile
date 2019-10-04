@@ -12,10 +12,12 @@ gen-output: gen-output.c
 
 gen-random-input: gen-random-input.c
 	$(GCC) -o $@ $<
-in%.txt: gen-random-input
+in%.uncut.txt: gen-random-input
 	./$< > $@
-out%.txt: in%.txt gen-output
+out%.txt: in%.uncut.txt gen-output
 	cat $< | ./gen-output > $@
+in%.txt: in%.uncut.txt
+	cat $<|tail -n +2 > $@
 test.zip: $(addsuffix .txt, $(addprefix in, 1 2 3 4 5) $(addprefix out, 1 2 3 4 5))
 	rm -rf $@
 	zip $(basename $@) $^
